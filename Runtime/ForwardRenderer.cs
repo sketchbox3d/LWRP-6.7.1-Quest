@@ -117,6 +117,9 @@ namespace UnityEngine.Rendering.LWRP
             bool createColorTexture = RequiresIntermediateColorTexture(ref renderingData, cameraTargetDescriptor)
                                       || rendererFeatures.Count != 0;
 
+            // Lets us use Linear color space and Render Objects... at our own risk...
+            createColorTexture = false;
+
             // If camera requires depth and there's no depth pre-pass we create a depth texture that can be read
             // later by effect requiring it.
             bool createDepthTexture = renderingData.cameraData.requiresDepthTexture && !requiresDepthPrepass;
